@@ -1,314 +1,50 @@
+<!-- Pour bien commencer une page HTML, on doit commencer par la déclaration DOCTYPE.
+Voila un exple:
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stitch OS : Pro Manager V30.5</title>
+
+    <title>Ma Première Page HTML</title>
 </head>
 
 <body>
-
-    <div class="container">
-        <div id="overlay">
-            <h1>ALERTE CRITIQUE</h1>
-            <p id="alert-text">PANNE SYSTEME DETECTEE</p>
-        </div>
-
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-            <h2 style="color:var(--accent-color); margin:0;">STITCH OS // V30.5</h2>
-            <div id="time-val" style="font-size:1.5rem; font-weight:bold; color:white;">08:00</div>
-        </div>
-
-        <div class="stats-bar">
-            <div><span class="stat-label">Argent</span><span id="stat-money" class="stat-val">500€</span></div>
-            <div><span class="stat-label">Noeud Actif</span><span id="stat-node" class="stat-val">BUR.</span></div>
-            <div><span class="stat-label">Securite</span><span id="stat-secu" class="stat-val">BASE</span></div>
-            <div><span class="stat-label">Temp</span><span id="stat-temp" class="stat-val">30°C</span></div>
-            <div><span class="stat-label">Flux</span><span id="stat-live" class="stat-val">0</span></div>
-            <div><span class="stat-label">Reput.</span><span id="stat-sat" class="stat-val">100%</span></div>
-        </div>
-
-        <div class="tabs">
-            <button id="btn-game" class="tab-btn active" onclick="openTab('game')">Monitoring</button>
-            <button id="btn-manager" class="tab-btn" onclick="openTab('manager')">Serveurs</button>
-            <button id="btn-skills" class="tab-btn" onclick="openTab('skills')">Competences</button>
-            <button id="btn-stats" class="tab-btn" onclick="openTab('stats')">Statistiques</button>
-            <button id="btn-humain" class="tab-btn" onclick="openTab('humain')">Stat. Humaines</button>
-        </div>
-
-        <div id="game" class="tab-content active">
-            <button class="btn btn-blue" style="height:45px; margin-bottom:15px;" onclick="scanNetwork()">LANCER SCAN
-                RESEAU</button>
-            <div class="grid-2">
-                <div id="terminal"></div>
-                <div id="client-monitor">
-                    <div id="client-container"></div>
-                </div>
-            </div>
-        </div>
-
-        <div id="manager" class="tab-content">
-            <div class="grid-2">
-                <div class="card" id="card-bureautique">
-                    <div class="active-badge">ACTIF</div>
-                    <h3>SERVEUR BUREAUTIQUE</h3>
-                    <button class="btn btn-blue" onclick="switchServer('bureautique')"
-                        style="margin-bottom:15px;">ACTIVER CE NOEUD</button>
-
-                    <div style="font-size:0.7rem;">RAM: <span id="bur-ram-txt">0/16</span>Go</div>
-                    <div class="pb-bg">
-                        <div id="bur-ram-bar" class="pb-fill" style="background:var(--accent-color)"></div>
-                    </div>
-                    <button class="btn btn-upgrade" onclick="buyUpgrade('bureautique', 'ram')">UPGRADE RAM
-                        (200€)</button>
-
-                    <div style="font-size:0.7rem; margin-top:10px;">DISK: <span id="bur-disk-txt">0/500</span>Go</div>
-                    <div class="pb-bg">
-                        <div id="bur-disk-bar" class="pb-fill" style="background:var(--success)"></div>
-                    </div>
-                    <button class="btn btn-upgrade" onclick="buyUpgrade('bureautique', 'disk')">UPGRADE DISQUE
-                        (150€)</button>
-                </div>
-
-                <div class="card" id="card-gaming">
-                    <div class="active-badge">ACTIF</div>
-                    <h3>SERVEUR GAMING</h3>
-                    <button class="btn btn-blue" onclick="switchServer('gaming')" style="margin-bottom:15px;">ACTIVER CE
-                        NOEUD</button>
-
-                    <div style="font-size:0.7rem;">RAM: <span id="gam-ram-txt">0/32</span>Go</div>
-                    <div class="pb-bg">
-                        <div id="gam-ram-bar" class="pb-fill" style="background:var(--accent-color)"></div>
-                    </div>
-                    <button class="btn btn-upgrade" onclick="buyUpgrade('gaming', 'ram')">UPGRADE RAM (400€)</button>
-
-                    <div style="font-size:0.7rem; margin-top:10px;">GPU VRAM: <span id="gam-gpu-txt">0/10</span>Go</div>
-                    <div class="pb-bg">
-                        <div id="gam-gpu-bar" class="pb-fill" style="background:var(--warning)"></div>
-                    </div>
-                    <button class="btn btn-upgrade" onclick="buyUpgrade('gaming', 'gpu')">UPGRADE GPU (500€)</button>
-
-                    <div style="font-size:0.7rem; margin-top:10px;">DISK: <span id="gam-disk-txt">0/1000</span>Go</div>
-                    <div class="pb-bg">
-                        <div id="gam-disk-bar" class="pb-fill" style="background:var(--success)"></div>
-                    </div>
-                    <button class="btn btn-upgrade" onclick="buyUpgrade('gaming', 'disk')">UPGRADE DISQUE
-                        (300€)</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="skills" class="tab-content">
-            <div class="grid-2">
-                <div class="card">
-                    <h4>PARE-FEU AVANCE</h4>
-                    <button class="btn btn-upgrade" style="color:var(--success)" onclick="buySkill('secu')">AMELIORER
-                        LVL <span id="sk-secu">0</span> (1500€)</button>
-                </div>
-                <div class="card">
-                    <h4>OPTIMISATION THERMIQUE</h4>
-                    <button class="btn btn-upgrade" style="color:var(--success)" onclick="buySkill('cool')">AMELIORER
-                        LVL <span id="sk-cool">0</span> (1200€)</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="stats" class="tab-content">
-            <div class="card">
-                <h4>HISTORIQUE DES OPERATIONS</h4>
-                <p>Clients Bureautique : <b id="st-bur-count">0</b> | Gaming : <b id="st-gam-count">0</b></p>
-                <p>Revenus Totaux : <b id="st-total-money">0€</b></p>
-            </div>
-        </div>
-
-        <div id="humain" class="tab-content">
-            <div class="card" style="text-align:center;">
-                <h4>SATISFACTION GLOBALE</h4>
-                <div class="pb-bg" style="height:20px;">
-                    <div id="balance-bar" class="pb-fill" style="background:var(--success); width:50%"></div>
-                </div>
-                <p>Satisfaits : <span id="h-happy">0</span> | Mecontents : <span id="h-angry">0</span></p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let state = {
-            money: 500, activeNode: 'bureautique', isBroken: false,
-            minutes: 480, currentTemp: 30, happy: 0, angry: 0,
-            servedBur: 0, servedGam: 0, moneyTotal: 0,
-            skills: { secu: 0, cool: 0 },
-            servers: {
-                bureautique: { ramMax: 16, ramUsed: 0, diskMax: 500, diskUsed: 0, mult: 1.2 },
-                gaming: { ramMax: 32, ramUsed: 0, gpuMax: 10, gpuUsed: 0, diskMax: 1000, diskUsed: 0, mult: 5.2 }
-            },
-            activeContracts: []
-        };
-
-        const costs = {
-            bureautique: { ram: 200, disk: 150 },
-            gaming: { ram: 400, disk: 300, gpu: 500 }
-        };
-
-        function addLog(t, color = '94a3b8') {
-            const entry = document.createElement('div');
-            entry.innerHTML = `> ${t}`;
-            entry.style.color = (color === 'white') ? '#fff' : (color === 'red') ? 'var(--danger)' : (color === 'success') ? 'var(--success)' : `#${color}`;
-            document.getElementById('terminal').prepend(entry);
-        }
-
-        function openTab(id) {
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            document.getElementById('btn-' + id).classList.add('active');
-        }
-
-        function switchServer(n) {
-            state.activeNode = n;
-            addLog("SWITCH : NOEUD " + n.toUpperCase(), "38bdf8");
-            updateUI();
-        }
-
-        function buyUpgrade(node, part) {
-            let cost = costs[node][part];
-            if (state.money >= cost) {
-                state.money -= cost;
-                if (part === 'ram') state.servers[node].ramMax += (node === 'gaming' ? 16 : 8);
-                if (part === 'disk') state.servers[node].diskMax += (node === 'gaming' ? 500 : 250);
-                if (part === 'gpu') state.servers[node].gpuMax += 8;
-                addLog(`UPGRADE : ${node} ${part.toUpperCase()} (+)`, "success");
-                updateUI();
-            } else {
-                addLog("FONDS INSUFFISANTS", "red");
-            }
-        }
-
-        function buySkill(type) {
-            let cost = (type === 'secu') ? 1500 : 1200;
-            if (state.money >= cost) {
-                state.money -= cost;
-                state.skills[type]++;
-                addLog("SKILL : NIVEAU AMELIORE", "success");
-                updateUI();
-            }
-        }
-
-        function scanNetwork() {
-            if (state.isBroken) return;
-            const s = state.servers[state.activeNode];
-            const ramReq = Math.floor(Math.random() * 5 + 2);
-            const diskReq = Math.floor(Math.random() * 50 + 20);
-            const gpuReq = (state.activeNode === 'gaming') ? Math.floor(Math.random() * 4 + 1) : 0;
-            const timeReq = Math.floor(Math.random() * 10 + 10);
-
-            if (s.ramUsed + ramReq <= s.ramMax && s.diskUsed + diskReq <= s.diskMax && (state.activeNode !== 'gaming' || s.gpuUsed + gpuReq <= s.gpuMax)) {
-                const id = "ID-" + Math.floor(Math.random() * 9000 + 1000);
-                const gain = Math.floor((ramReq * 20 + diskReq * 0.5 + gpuReq * 80) * s.mult);
-                s.ramUsed += ramReq; s.diskUsed += diskReq;
-                if (state.activeNode === 'gaming') s.gpuUsed += gpuReq;
-                state.money += Math.floor(gain / 2);
-                state.activeContracts.push({ id, ramReq, diskReq, gpuReq, timeLeft: timeReq, node: state.activeNode, totalGain: gain });
-                addLog(`CONNEXION : ${id}`, "22c55e");
-                renderClientCards();
-            } else {
-                addLog("ERREUR : RESSOURCES INSUFFISANTES", "red");
-            }
-            updateUI();
-        }
-
-        function triggerIncident(type) {
-            if (state.isBroken) return;
-            state.isBroken = true;
-            state.angry += state.activeContracts.length;
-            state.activeContracts = [];
-            state.servers.bureautique.ramUsed = 0; state.servers.bureautique.diskUsed = 0;
-            state.servers.gaming.ramUsed = 0; state.servers.gaming.diskUsed = 0; state.servers.gaming.gpuUsed = 0;
-            document.getElementById('overlay').style.display = 'flex';
-            document.getElementById('alert-text').innerText = (type === 'heat') ? "SURCHAUFFE" : "CYBER-ATTAQUE";
-            setTimeout(() => { state.isBroken = false; state.currentTemp = 35; document.getElementById('overlay').style.display = 'none'; addLog("SYSTEME OPERATIONNEL", "white"); }, 5000);
-            updateUI();
-        }
-
-        function renderClientCards() {
-            const container = document.getElementById('client-container');
-            container.innerHTML = "";
-            state.activeContracts.forEach(c => {
-                const card = document.createElement('div');
-                card.className = 'client-card';
-                card.innerHTML = `USR: ${c.id} | ${c.node.toUpperCase()} | RESTANT: ${c.timeLeft}s`;
-                container.appendChild(card);
-            });
-        }
-
-        function updateUI() {
-            const b = state.servers.bureautique; const g = state.servers.gaming;
-            document.getElementById('stat-money').innerText = state.money + "€";
-            document.getElementById('stat-node').innerText = state.activeNode.slice(0, 3).toUpperCase();
-            document.getElementById('stat-temp').innerText = Math.floor(state.currentTemp) + "°C";
-            document.getElementById('stat-live').innerText = state.activeContracts.length;
-
-            // Mise à jour visuelle des bordures de sélection
-            document.getElementById('card-bureautique').classList.remove('node-active');
-            document.getElementById('card-gaming').classList.remove('node-active');
-            document.getElementById('card-' + state.activeNode).classList.add('node-active');
-
-            document.getElementById('bur-ram-txt').innerText = `${b.ramUsed}/${b.ramMax}`;
-            document.getElementById('bur-ram-bar').style.width = (b.ramUsed / b.ramMax * 100) + "%";
-            document.getElementById('bur-disk-txt').innerText = `${b.diskUsed}/${b.diskMax}`;
-            document.getElementById('bur-disk-bar').style.width = (b.diskUsed / b.diskMax * 100) + "%";
-
-            document.getElementById('gam-ram-txt').innerText = `${g.ramUsed}/${g.ramMax}`;
-            document.getElementById('gam-ram-bar').style.width = (g.ramUsed / g.ramMax * 100) + "%";
-            document.getElementById('gam-gpu-txt').innerText = `${g.gpuUsed}/${g.gpuMax}`;
-            document.getElementById('gam-gpu-bar').style.width = (g.gpuUsed / g.gpuMax * 100) + "%";
-            document.getElementById('gam-disk-txt').innerText = `${g.diskUsed}/${g.diskMax}`;
-            document.getElementById('gam-disk-bar').style.width = (g.diskUsed / g.diskMax * 100) + "%";
-
-            let ops = state.happy + state.angry;
-            let sat = ops === 0 ? 100 : Math.round((state.happy / ops) * 100);
-            document.getElementById('stat-sat').innerText = sat + "%";
-            document.getElementById('h-happy').innerText = state.happy;
-            document.getElementById('h-angry').innerText = state.angry;
-            document.getElementById('balance-bar').style.width = (ops === 0 ? 50 : (state.happy / ops * 100)) + "%";
-            document.getElementById('st-bur-count').innerText = state.servedBur;
-            document.getElementById('st-gam-count').innerText = state.servedBur;
-            document.getElementById('st-gam-count').innerText = state.servedGam;
-            document.getElementById('st-total-money').innerText = state.moneyTotal + "€";
-            document.getElementById('sk-secu').innerText = state.skills.secu;
-            document.getElementById('sk-cool').innerText = state.skills.cool;
-        }
-
-        setInterval(() => {
-            if (!state.isBroken) {
-                state.minutes++;
-                const h = Math.floor(state.minutes / 60).toString().padStart(2, '0');
-                const m = (state.minutes % 60).toString().padStart(2, '0');
-                document.getElementById('time-val').innerText = `${h}:${m}`;
-                state.activeContracts.forEach((c, idx) => {
-                    c.timeLeft--;
-                    if (c.timeLeft <= 0) {
-                        state.money += Math.floor(c.totalGain / 2); state.moneyTotal += c.totalGain;
-                        state.happy++; if (c.node === 'bureautique') state.servedBur++; else state.servedGam++;
-                        state.servers[c.node].ramUsed -= c.ramReq; state.servers[c.node].diskUsed -= c.diskReq;
-                        if (c.node === 'gaming') state.servers[c.node].gpuUsed -= c.gpuReq;
-                        addLog(`CONTRAT TERMINE : ${c.id}`, "success");
-                        state.activeContracts.splice(idx, 1);
-                    }
-                });
-                renderClientCards();
-                let heatFactor = 0.4 - (state.skills.cool * 0.08);
-                if (state.activeContracts.length > 0) state.currentTemp += Math.max(0.1, heatFactor);
-                else if (state.currentTemp > 30) state.currentTemp -= 0.5;
-                if (state.currentTemp > 100) triggerIncident('heat');
-                if (Math.random() < (0.004 - (state.skills.secu * 0.001))) triggerIncident('hack');
-            }
-            updateUI();
-        }, 1000);
-
-        window.onload = () => { addLog("STITCH OS V30.5 : BOOT SUCCESS", "white"); updateUI(); };
-    </script>
 </body>
+</html> -->
 
-</html>
+<!-- Pour metre du script en js, il faut metre la balise <script> en bas de la page, juste avant la fermeture de la balise </body> ou sois on peut cree un nouveau fichier avec l'extension .js et le lier a la page html avec la balise <script src="nomduprojet.js"></script> en bas de la page, juste avant la fermeture de la balise </body> -->
+
+<!-- Pour metre du style en css, il faut metre la balise <style> dans la balise <head> ou sois on peut cree un nouveau fichier avec l'extension .css et le lier a la page html avec la balise <link rel="stylesheet" href="nomduprojet.css"> dans la balise <head> -->-->
+
+<!-- La balise title sert a mettre le titre de la page dans l'onglet du navigateur. -->
+
+<!-- Le h1 sert a faire un titre principal.
+Le h2 sert a faire un titre secondaire.
+Le h3 sert a faire un titre de troisième niveau.
+Ect -->
+
+<!-- Les classes servent à regrouper des éléments pour les styliser avec CSS ou les sélectionner avec JavaScript. 
+Voila un exple: 
+<h1 class="titre">Hello World</h1> 
+apres le titre de la classes tu la nomme comme tu veux.
+-->
+
+<!-- Pour rendre un bouton cliquable, il faut metre la balise <button> avec un id="" dedans. Un nom que tu choisir toi meme comme pour les classes. 
+Voila un exple:
+
+<button id="monBouton">Clique sur moi !</button>
+
+<script>
+    // On récupère le bouton dans une variable grâce à son ID
+    const bouton = document.getElementById('monBouton');
+
+    // On dit au bouton d'écouter l'événement "click"
+    bouton.addEventListener('click', function () {
+        // Voici l'action qui s'exécute au clic
+        alert('Bravo ! Tu as rendu ton premier bouton cliquable !');
+    });
+</script>
+-->
