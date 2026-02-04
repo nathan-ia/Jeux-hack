@@ -1,0 +1,62 @@
+:root {
+    --mdn-blue: #0060df;
+    --sidebar-bg: #f9f9fb;
+}
+
+/* Pour un défilement fluide */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    display: flex;
+    color: #1b1b1b;
+}
+
+/* Sidebar fixe à gauche */
+nav {
+    width: 250px;
+    height: 100vh;
+    background: var(--sidebar-bg);
+    border-right: 1px solid #e0e0e0;
+    padding: 20px;
+    position: fixed;
+    /* Reste en place pendant le scroll */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--mdn-blue);
+    display: block;
+    padding: 5px 0;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Contenu décalé pour ne pas être caché par la sidebar */
+main {
+    margin-left: 290px;
+    padding: 40px;
+    max-width: 800px;
+}
+
+section {
+    margin-bottom: 100px;
+    padding-top: 20px;
+}
+
+pre {
+    background: #f0f0f2;
+    padding: 15px;
+    border-left: 5px solid var(--mdn-blue);
+    font-family: 'Fira Code', monospace;
+}

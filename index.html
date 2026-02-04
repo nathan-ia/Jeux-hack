@@ -1,49 +1,110 @@
-<!-- Pour bien commencer une page HTML, on doit commencer par la déclaration DOCTYPE.
-Voila un exple:
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Documentation Complète - Style MDN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 
-    <title>Ma Première Page HTML</title>
 </head>
 
 <body>
+
+    <nav>
+        <h2>Sommaire</h2>
+        <ul>
+            <li><a href="#html-base">Structure HTML</a></li>
+            <li><a href="#titres">Titres</a></li>
+            <li><a href="#boutons">Les Boutons</a></li>
+            <li><a href="#js">Le JavaScript</a></li>
+            <li><a href="#css">Le CSS</a></li>
+            <li><a href="#tableau">Les Tableaux</a></li>
+            <li><a href="#input">Barre de saisie</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="html-base">
+            <h1>Structure de base HTML</h1>
+            <p>Pour bien commencer une page HTML, on doit commencer par la déclaration DOCTYPE. Voici un exemple :</p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Ma Première Page HTML&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <p>La balise <code>&lt;title&gt;</code> sert à mettre le titre de la page dans l'onglet du navigateur.</p>
+        </section>
+
+        <section id="titres">
+            <h2>Les Titres et Classes</h2>
+            <p>Le <code>h1</code> sert à faire un titre principal, le <code>h2</code> sert à faire un titre secondaire,
+                et le <code>h3</code> un titre de troisième niveau.</p>
+            <p>Les <strong>classes</strong> servent à regrouper des éléments pour les styliser avec CSS ou les
+                sélectionner avec JavaScript.</p>
+            <pre><code>&lt;h1 class="titre"&gt;Hello World&lt;/h1&gt;</code></pre>
+            <p>Après le titre de la classe, tu la nommes comme tu veux.</p>
+        </section>
+
+        <section id="boutons">
+            <h2>Les Boutons</h2>
+            <p>Pour rendre un bouton cliquable, il faut mettre la balise <code>&lt;button&gt;</code> avec un
+                <code>id=""</code> dedans. C'est un nom que tu choisis toi-même comme pour les classes.
+            </p>
+            <p>On peut modifier son apparence avec CSS et déclencher des actions avec JavaScript.</p>
+            <pre><code>&lt;button id="monBtn"&gt;Cliquez ici&lt;/button&gt;</code></pre>
+            <button id="monBtn" style="padding: 10px; cursor: pointer;">Bouton de test</button>
+        </section>
+
+        <section id="js">
+            <h2>Le JavaScript (JS)</h2>
+            <p>Le JS permet de détecter le clic. Il permet aussi de rendre la page interactive au lieu de laisser un
+                site statique.</p>
+            <p>On peut l'écrire soit dans un fichier <code>.js</code>, soit dans une balise <code>&lt;script&gt;</code>
+                en bas de la page, juste avant la fermeture de la balise <code>&lt;/body&gt;</code>.</p>
+            <pre><code>&lt;script src="nomdufichier.js"&gt;&lt;/script&gt;</code></pre>
+        </section>
+
+        <section id="css">
+            <h2>Le CSS</h2>
+            <p>Le CSS permet de modifier l'apparence de la page (taille, couleur, police) pour la rendre plus
+                attrayante.</p>
+            <p>Il faut mettre la balise <code>&lt;style&gt;</code> dans la balise <code>&lt;head&gt;</code> ou lier un
+                fichier <code>.css</code>.</p>
+            <pre><code>&lt;link rel="stylesheet" href="nomdufichier.css"&gt;</code></pre>
+            <p>Exemple : <code>background-color</code> est la couleur de fond.</p>
+        </section>
+
+        <section id="tableau">
+            <h2>Le Tableau</h2>
+            <p>S'écrit avec la balise <code>&lt;table&gt;</code> et permet de créer un tableau de données.</p>
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                </tr>
+                <tr>
+                    <td>Dupont</td>
+                    <td>Jean</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="input">
+            <h2>La barre de saisie</h2>
+            <p>La balise <code>&lt;input&gt;</code> permet de créer une zone de saisie. On peut récupérer sa valeur avec
+                JavaScript.</p>
+            <input type="text" id="maSaisie" placeholder="Saisissez votre nom" style="padding: 8px; width: 80%;">
+        </section>
+    </main>
+
 </body>
-</html> -->
 
-<!-- Pour metre du script en js, il faut metre la balise <script> en bas de la page, juste avant la fermeture de la balise </body> ou sois on peut cree un nouveau fichier avec l'extension .js et le lier a la page html avec la balise <script src="nomduprojet.js"></script> en bas de la page, juste avant la fermeture de la balise </body> -->
-
-<!-- Pour metre du style en css, il faut metre la balise <style> dans la balise <head> ou sois on peut cree un nouveau fichier avec l'extension .css et le lier a la page html avec la balise <link rel="stylesheet" href="nomduprojet.css"> dans la balise <head> -->-->
-
-<!-- La balise title sert a mettre le titre de la page dans l'onglet du navigateur. -->
-
-<!-- Le h1 sert a faire un titre principal.
-Le h2 sert a faire un titre secondaire.
-Le h3 sert a faire un titre de troisième niveau.
-Ect -->
-
-<!-- Les classes servent à regrouper des éléments pour les styliser avec CSS ou les sélectionner avec JavaScript. 
-Voila un exple: 
-<h1 class="titre">Hello World</h1> 
-apres le titre de la classes tu la nomme comme tu veux.
--->
-
-<!-- Pour rendre un bouton cliquable, il faut metre la balise <button> avec un id="" dedans. Un nom que tu choisir toi meme comme pour les classes. 
-Voila un exple:
-
-<button id="monBouton">Clique sur moi !</button>
-
-<script>
-    // On récupère le bouton dans une variable grâce à son ID
-    const bouton = document.getElementById('monBouton');
-
-    // On dit au bouton d'écouter l'événement "click"
-    bouton.addEventListener('click', function () {
-        // Voici l'action qui s'exécute au clic
-        alert('Bravo ! Tu as rendu ton premier bouton cliquable !');
-    });
-</script>
+</html>
