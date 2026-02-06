@@ -4,32 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Documentation Complète - Style MDN</title>
+    <title>Documentation Web Interactive</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-
 </head>
 
 <body>
-
     <nav>
-        <h2>Sommaire</h2>
-        <ul>
-            <li><a href="#html-base">Structure HTML</a></li>
+        <h1>Sommaire</h1>
+        <div class="search-box">
+            <input type="text" id="maRecherche" onkeyup="filtrerMenu()" placeholder="Rechercher...">
+        </div>
+
+        <ul id="menuDoc">
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#html">Structure HTML</a></li>
             <li><a href="#titres">Titres</a></li>
+            <li><a href="#div">Div</a></li>
+            <li><a href="#classes">Classes</a></li>
+            <li><a href="#id">ID</a></li>
             <li><a href="#boutons">Les Boutons</a></li>
-            <li><a href="#js">Le JavaScript</a></li>
-            <li><a href="#css">Le CSS</a></li>
+            <li><a href="#audio">Audio</a></li>
+            <li><a href="#css">CSS</a></li>
             <li><a href="#tableau">Les Tableaux</a></li>
             <li><a href="#input">Barre de saisie</a></li>
+            <li><a href="#images">Images</a></li>
+            <li><a href="#lien">Lien</a></li>
+            <li><a href="#liste">Liste</a></li>
+            <li><a href="#js">JavaScript</a></li>
+            <li><a href="#infos-projet">À propos</a></li>
         </ul>
     </nav>
 
     <main>
-        <section id="html-base">
-            <h1>Structure de base HTML</h1>
+        <section id="introduction">
+            <h1>Introduction</h1>
+            <h2>Documentation Web Interactive</h2>
+            <p>Ce guide est une ressource personnelle pour maîtriser la création de sites web. Il regroupe mes notes sur
+                la structure, le design et l'interactivité.</p>
+
+            <p>Ici, chaque concept est expliqué avec :
+            <ul>
+                <li><strong>La Théorie :</strong> Pourquoi et comment utiliser chaque balise.</li>
+                <li><strong>Le Code :</strong> Des exemples concrets à copier et coller.</li>
+                <li><strong>Le Rendu :</strong> Une zone "Live Sample" pour voir le résultat en direct.</li>
+            </ul>
+            </p>
+            <p>Utilise le menu à gauche pour naviguer entre les différentes technologies (HTML, CSS, JS) et voir comment
+                elles travaillent ensemble pour créer un site complet.</p>
+        </section>
+
+        <section id="html">
+            <h1>Structure de base HTML<span class="badge">Standard</span></h1>
             <p>Pour bien commencer une page HTML, on doit commencer par la déclaration DOCTYPE. Voici un exemple :</p>
             <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="fr"&gt;
@@ -44,17 +71,54 @@
         </section>
 
         <section id="titres">
-            <h2>Les Titres et Classes</h2>
-            <p>Le <code>h1</code> sert à faire un titre principal, le <code>h2</code> sert à faire un titre secondaire,
-                et le <code>h3</code> un titre de troisième niveau.</p>
+            <h1>Les titres<span class="badge">Standard</span></h1>
+            <p>Le <code>&lt;h1&gt;</code> sert à faire un titre principal, le <code>h2</code> sert à faire un titre
+                secondaire,
+                et le <code>&lt;h3&gt;</code> un titre de troisième niveau ect jusque au <code>&lt;h6&gt;</code>.</p>
+            <p>Exemple :</p>
+            <pre><code>&lt;h1 class="titre"&gt;Hello World&lt;/h1&gt;</code></pre>
+            <p>On a mis <code>&lt;h1&gt;</code> pour dire que c'est le titre principal de la page.</p>
+        </section>
+
+        <section id="div">
+            <h1>Les Div<span class="badge">Standard</span></h1>
+            <p>Les <strong>div</strong> servent à regrouper des éléments dans le HTML. On doit metre une class ou un id
+                dedans pour pouvoir les selectionner et les modifier avec CSS ou avec le JavaScript(JS).</p>
+            <p>Exemple :</p>
+            <pre><code>&lt;div class="conteneur"&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;p&gt;Bonjour tout le monde !&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+
+
+        <section id="classes">
+            <h1>Les classes<span class="badge">Standard</span></h1>
             <p>Les <strong>classes</strong> servent à regrouper des éléments pour les styliser avec CSS ou les
                 sélectionner avec JavaScript.</p>
+            <p>Exemple :</p>
             <pre><code>&lt;h1 class="titre"&gt;Hello World&lt;/h1&gt;</code></pre>
-            <p>Après le titre de la classe, tu la nommes comme tu veux.</p>
+            <p>On a mis <code>class="titre"</code> pour dire que c'est la classe titre.</p>
+            <p>On pourras le styliser avec CSS avec <code>.titre</code> ou le sélectionner avec JavaScript avec
+                <code>document.querySelector('.titre')</code>.
+            </p>
+        </section>
+
+        <section id="id">
+            <h1>Les ID<span class="badge">Standard</span></h1>
+            <p>Les <strong>id</strong> servent à identifier un élément unique pour le styliser avec CSS ou le
+                sélectionner avec JavaScript. Comme les classes, on met un nom dedans.</p>
+            <p>Exemple :</p>
+            <pre><code>&lt;h1 id="titre"&gt;Hello World&lt;/h1&gt;</code></pre>
+            <p>On a mis <code>id="titre"</code> pour dire que c'est l'id titre. On pourras le styliser avec CSS avec
+                <code>#titre</code> ou le sélectionner avec JavaScript avec
+                <code>document.querySelector('#titre')</code>.
+            </p>
         </section>
 
         <section id="boutons">
-            <h2>Les Boutons</h2>
+            <h1>Les boutons<span class="badge">Standard</span></h1>
             <p>Pour rendre un bouton cliquable, il faut mettre la balise <code>&lt;button&gt;</code> avec un
                 <code>id=""</code> dedans. C'est un nom que tu choisis toi-même comme pour les classes.
             </p>
@@ -63,17 +127,16 @@
             <button id="monBtn" style="padding: 10px; cursor: pointer;">Bouton de test</button>
         </section>
 
-        <section id="js">
-            <h2>Le JavaScript (JS)</h2>
-            <p>Le JS permet de détecter le clic. Il permet aussi de rendre la page interactive au lieu de laisser un
-                site statique.</p>
-            <p>On peut l'écrire soit dans un fichier <code>.js</code>, soit dans une balise <code>&lt;script&gt;</code>
-                en bas de la page, juste avant la fermeture de la balise <code>&lt;/body&gt;</code>.</p>
-            <pre><code>&lt;script src="nomdufichier.js"&gt;&lt;/script&gt;</code></pre>
+        <section id="audio">
+            <h1>Audio<span class="badge">Standard</span></h1>
+            <p>La balise <code>&lt;audio&gt;</code> permet d'insérer un fichier audio sur la page.</p>
+            <p>Exemple :</p>
+            <pre><code>&lt;audio src="mon-audio.mp3" controls&gt;&lt;/audio&gt;</code></pre>
+            <p>On peut ajouter la balise <code>controls</code> pour afficher les contrôles de lecture.</p>
         </section>
 
         <section id="css">
-            <h2>Le CSS</h2>
+            <h1>CSS<span class="badge">Standard</span></h1>
             <p>Le CSS permet de modifier l'apparence de la page (taille, couleur, police) pour la rendre plus
                 attrayante.</p>
             <p>Il faut mettre la balise <code>&lt;style&gt;</code> dans la balise <code>&lt;head&gt;</code> ou lier un
@@ -83,28 +146,143 @@
         </section>
 
         <section id="tableau">
-            <h2>Le Tableau</h2>
+            <h1>Le Tableau<span class="badge">Standard</span></h1>
             <p>S'écrit avec la balise <code>&lt;table&gt;</code> et permet de créer un tableau de données.</p>
-            <table>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                </tr>
-                <tr>
-                    <td>Dupont</td>
-                    <td>Jean</td>
-                </tr>
-            </table>
+            <p>Exemple :</p>
+            <pre><code>&lt;table&gt;
+                &lt;tr&gt;
+                &lt;th&gt;Nom&lt;/th&gt;
+                &lt;th&gt;Prénom&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                &lt;td&gt;Dupont&lt;/td&gt;
+                &lt;td&gt;Jean&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;/table&gt;</code></pre>
         </section>
 
         <section id="input">
-            <h2>La barre de saisie</h2>
+            <h1>La barre de saisie<span class="badge">Standard</span></h1>
             <p>La balise <code>&lt;input&gt;</code> permet de créer une zone de saisie. On peut récupérer sa valeur avec
                 JavaScript.</p>
-            <input type="text" id="maSaisie" placeholder="Saisissez votre nom" style="padding: 8px; width: 80%;">
+            <p>Voici un exemple de code :</p>
+            <pre><code>&lt;input type="text" id="maSaisieDoc" placeholder="Saisissez votre nom"&gt;</code></pre>
+            <input type="text" id="maSaisieDoc" placeholder="Saisissez votre nom">
         </section>
+
+        <section id="images">
+            <h1>Insérer des images <span class="badge">Standard</span></h1>
+            <p>La balise <code>&lt;img&gt;</code> permet d'afficher des images sur ton site. C'est une balise
+                <strong>orpheline</strong> (elle n'a pas de fermeture).
+            </p>
+
+            <div class="aide-bloc definition">
+                <strong>Il existe deux façons de charger une image :</strong>
+                <ul>
+                    <li><strong>Lien Local :</strong> L'image est enregistrée dans ton dossier (ex:
+                        <code>image.jpg</code>).
+                    </li>
+                    <li><strong>Lien Internet (URL) :</strong> L'image est hébergée sur un autre site (ex:
+                        <code>https://...</code>).
+                    </li>
+                </ul>
+            </div>
+
+            <h3>1. Image locale (dans ton dossier)</h3>
+            <p>C'est la méthode la plus sûre pour que ton site fonctionne toujours.</p>
+            <pre><code>&lt;img src="mon-image.png" alt="Un chat qui dort" width="300"&gt;</code></pre>
+
+            <h3>2. Image depuis Internet (URL)</h3>
+            <p>On copie simplement l'adresse de l'image trouvée sur le web.</p>
+            <pre><code>&lt;img src="https://exemple.com/photo.jpg" alt="Paysage de montagne"&gt;</code></pre>
+
+            <div class="aide-bloc attention">
+                <strong>Rappel important :</strong>
+                <ul>
+                    <li>L'attribut <code>src</code> est la source (le lien).</li>
+                    <li>L'attribut <code>alt</code> est obligatoire pour l'accessibilité (si l'image ne charge pas).
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="lien">
+            <h1>Le Lien<span class="badge">Standard</span></h1>
+            <p>La balise <code>&lt;a&gt;</code> permet de créer un lien vers une autre page ou vers une autre section de
+                la
+                même page.</p>
+            <p>Exemple :</p>
+            <pre><code>&lt;a href="https://www.google.com"&gt;Google&lt;/a&gt;</code></pre>
+            <p>Clique sur le lien pour voir le résultat :</p>
+            <a href="https://nathan.stevenleclerc.me">Mon site</a>
+        </section>
+
+        <section id="liste">
+            <h1>La liste<span class="badge">Standard</span></h1>
+            <p>Il existe deux types de liste :</p>
+            <ul>
+                <li>La liste à puces avec <code>&lt;ul&gt;</code></li>
+                <li>La liste à numéros avec <code>&lt;ol&gt;</code></li>
+            </ul>
+            </p>
+            <p>Exemple de liste à puces :</p>
+            <pre><code>&lt;ul&gt;
+    &lt;li&gt;Pomme&lt;/li&gt;
+    &lt;li&gt;Poire&lt;/li&gt;
+    &lt;li&gt;Banane&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <p>Exemple de liste à numéros :</p>
+            <pre><code>&lt;ol&gt;
+    &lt;li&gt;1&lt;/li&gt;
+    &lt;li&gt;2&lt;/li&gt;
+    &lt;li&gt;3&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+            <p>Exemple :</p>
+            <ul>
+                <li>Pomme</li>
+                <li>Poire</li>
+                <li>Banane</li>
+            </ul>
+            <ol>
+                <li>Un</li>
+                <li>Deux</li>
+                <li>Trois</li>
+                </p>
+        </section>
+
+        <section id="">
+            <h1>Le JavaScript (JS) <span class="badge">Dynamique</span></h1>
+            <p>Si le HTML est le squelette et le CSS les vêtements, le <strong>JavaScript</strong> est le muscle qui
+                permet de bouger.</p>
+
+            <div class="aide-bloc definition">
+                <strong>Rôle du JS :</strong> Il sert à rendre la page réactive. Par exemple :
+                <ul>
+                    <li>Cacher ou montrer un menu.</li>
+                    <li>Calculer des nombres.</li>
+                    <li>Changer le texte d'un titre quand on clique dessus.</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+        <footer id="infos-projet">
+            <div class="aide-bloc definition">
+                <p><strong>Note du développeur :</strong> Ce site a été entièrement conçu et codé par un seul
+                    développeur.</p>
+                <p><em>Ce guide n'est jamais vraiment fini : il sera mis à jour à chaque nouvelle découverte ou
+                        apprentissage de la part de son développeur.</em></p>
+                <p class="date-footer">Dernière mise à jour : Février 2026</p>
+            </div>
+            <p style="text-align: center; font-size: 0.8rem; color: #282828;">
+                Propulsé par la curiosité • 2026
+            </p>
+        </footer>
+
     </main>
 
+    <script src="script.js"></script>
 </body>
 
 </html>

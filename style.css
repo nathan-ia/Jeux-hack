@@ -3,19 +3,20 @@
     --sidebar-bg: #f9f9fb;
 }
 
-/* Pour un défilement fluide */
 html {
     scroll-behavior: smooth;
 }
 
 body {
+    background-color: #00000087;
+    /* Fond blanc pur */
+    color: #1b1b1b;
     font-family: 'Inter', sans-serif;
     margin: 0;
     display: flex;
     color: #1b1b1b;
 }
 
-/* Sidebar fixe à gauche */
 nav {
     width: 250px;
     height: 100vh;
@@ -23,7 +24,6 @@ nav {
     border-right: 1px solid #e0e0e0;
     padding: 20px;
     position: fixed;
-    /* Reste en place pendant le scroll */
 }
 
 nav ul {
@@ -32,10 +32,11 @@ nav ul {
 }
 
 nav a {
+    font-size: 16px;
     text-decoration: none;
     color: var(--mdn-blue);
     display: block;
-    padding: 5px 0;
+    padding: 3px 0;
 }
 
 nav a:hover {
@@ -44,7 +45,7 @@ nav a:hover {
 
 /* Contenu décalé pour ne pas être caché par la sidebar */
 main {
-    margin-left: 290px;
+    margin-left: 300px;
     padding: 40px;
     max-width: 800px;
 }
@@ -59,4 +60,46 @@ pre {
     padding: 15px;
     border-left: 5px solid var(--mdn-blue);
     font-family: 'Fira Code', monospace;
+}
+
+section h1 {
+    font-size: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-top: 40px;
+}
+
+
+.search-box {
+    margin-bottom: 20px;
+}
+
+#maRecherche {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+#maRecherche:focus {
+    border-color: var(--mdn-blue);
+    box-shadow: 0 0 0 2px rgba(0, 96, 223, 0.2);
+}
+
+.badge {
+    display: inline-block;
+    background-color: rgba(0, 96, 223, 0.15);
+    border: 1px solid var(--mdn-blue);
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 10px;
+    vertical-align: middle;
+    text-transform: uppercase;
+
 }
