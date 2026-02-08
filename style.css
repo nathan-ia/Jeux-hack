@@ -9,7 +9,6 @@ html {
 
 body {
     background-color: #00000087;
-    /* Fond blanc pur */
     color: #1b1b1b;
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -43,7 +42,6 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Contenu décalé pour ne pas être caché par la sidebar */
 main {
     margin-left: 300px;
     padding: 40px;
@@ -75,14 +73,7 @@ section h1 {
 }
 
 #maRecherche {
-    width: 100%;
-    padding: 10px;
     border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    font-size: 14px;
-    outline: none;
-    transition: 0.3s;
-    box-sizing: border-box;
 }
 
 #maRecherche:focus {
