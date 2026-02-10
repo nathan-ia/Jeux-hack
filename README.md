@@ -15,5 +15,6 @@ Chaque concept est expliqué avec :
 - **Structure HTML** : Balise de base pour commencer une page HTML.
 - **index.html** :Sera mis a jour a chaque nouvelle découverte de ma part.
 
-- **Mise à jour** : Ajout de la barre de recherche, ajout du fichier README.md.  
- Dernière mise à jour fevrier 2026.
+## Mise à jour
+- Ajout de la barre de recherche, ajout du fichier README.md.  
+- Dernière mise à jour fevrier 2026.
