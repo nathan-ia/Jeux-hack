@@ -1,23 +1,21 @@
 function filtrerMenu() {
-    let input = document.getElementById('maRecherche');
-    let filter = input.value.toLowerCase();
-    let ul = document.getElementById("menuDoc");
-    let li = ul.getElementsByTagName('li');
+    // 1. Récupérer ce que l'utilisateur a tapé
+    let saisie = document.getElementById('maRecherche').value.toLowerCase();
 
+    // 2. Récupérer la liste des liens du menu
+    let menu = document.getElementById('menuDoc');
+    let elements = menu.getElementsByTagName('li');
 
-    for (let i = 0; i < li.length; i++) {
-        let a = li[i].getElementsByTagName('a')[0];
-        let texte = a.textContent || a.innerText;
+    // 3. Parcourir chaque élément du menu
+    for (let i = 0; i < elements.length; i++) {
+        let lien = elements[i].getElementsByTagName('a')[0];
+        let texte = lien.textContent || lien.innerText;
 
-        if (texte.toLowerCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
+        // 4. Cacher ou afficher selon la recherche
+        if (texte.toLowerCase().indexOf(saisie) > -1) {
+            elements[i].style.display = ""; // Afficher
         } else {
-            li[i].style.display = "none";
+            elements[i].style.display = "none"; // Cacher
         }
     }
 }
-
-
-document.getElementById('monBtn').onclick = function () {
-    alert("Interaction réussie !");
-};

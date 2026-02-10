@@ -13,7 +13,7 @@ Chaque concept est expliqué avec :
 
 - **Introduction** : Présentation du guide.
 - **Structure HTML** : Balise de base pour commencer une page HTML.
-- **index.html** :Sera mis a jour a chaque nouvelle découverte de ma part.
+- **index.html** : Sera mis a jour a chaque nouvelle découverte de la part de son développeur.
 
 ## Mise à jour
 - Ajout de la barre de recherche, ajout du fichier README.md.  
